@@ -39,12 +39,19 @@ public class MainActivity extends AppCompatActivity implements QuizFragment.OnAn
     private void showQuizCompletionMessage() {
         // Display a message indicating that the quiz is completed
         Toast.makeText(this, "Quiz Completed!", Toast.LENGTH_SHORT).show();
-
     }
 
     private void showResultToast(boolean isCorrect) {
         String message = isCorrect ? "Correct!" : "Incorrect!";
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
-}
 
+    // New methods added
+    @Override
+    public void showNextQuestion() {
+        // Replace the current fragment with a new instance of QuizFragment
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.fragment_container, QuizFragment.newInstance(currentQuestionIndex));
+        ft.commit();
+    }
+}
