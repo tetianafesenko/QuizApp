@@ -7,11 +7,33 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/header_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+
+        android:background="@color/Purple"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:padding="20sp"
+        android:text="@string/quiz_assignment"
+        android:textColor="@color/White"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
         android:id="@+id/marks"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="12dp"
-        android:layout_marginBottom="12dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="0dp"
         android:gravity="center"
         android:padding="20sp"
         android:text="@string/score"
@@ -23,7 +45,7 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="86dp"
+        android:layout_marginTop="200dp"
         android:layout_marginRight="10dp"
         app:cardBackgroundColor="@color/LightGoldenrodYellow"
         app:cardCornerRadius="10sp">
@@ -36,9 +58,9 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="55dp"
             android:gravity="center"
-            android:textAlignment="center"
             android:padding="20sp"
             android:text="@string/question1"
+            android:textAlignment="center"
             android:textColor="@color/BlueViolet"
             android:textSize="45sp"
             android:textStyle="bold" />
