@@ -1,10 +1,12 @@
 package com.example.quizapp;
+
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -46,7 +48,8 @@ public class QuizFragment extends Fragment {
         currentQuestionIndex = getArguments().getInt("questionIndex");
 
         // Set up your UI elements and question based on the currentQuestionIndex
-        // For example, update the question text in a TextView
+        TextView questionTextView = view.findViewById(R.id.questionTextView);
+        questionTextView.setText(QuizData.questions.get(currentQuestionIndex).getText());
 
         Button btnTrue = view.findViewById(R.id.trueButton);
         Button btnFalse = view.findViewById(R.id.falseButton);

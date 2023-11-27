@@ -46,8 +46,6 @@ public class MainActivity extends AppCompatActivity implements QuizFragment.OnAn
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 
-    // New methods added
-    @Override
     public void showNextQuestion() {
         // Replace the current fragment with a new instance of QuizFragment
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
