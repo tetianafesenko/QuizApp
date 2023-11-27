@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#464B52"
+    tools:context=".MainActivity">
+    <TextView
+        android:layout_width="match_parent"
+        android:padding="20sp"
+        android:text="Score "
+        android:textColor="@color/White"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:id="@+id/marks"
+        android:gravity="center"
+        android:layout_marginBottom="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_height="wrap_content" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="86dp"
+        android:layout_marginRight="10dp"
+        app:cardBackgroundColor="#00E676"
+        app:cardCornerRadius="10sp">
+
+        <TextView
+            android:id="@+id/question"
+            style="@style/Widget.AppCompat.Light.ActionBar.Solid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="55dp"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:padding="20sp"
+            android:text="question1"
+            android:textColor="@color/BlueViolet"
+            android:textSize="45sp"
+            android:textStyle="bold" />
+    </androidx.cardview.widget.CardView>
+
+    <ProgressBar
+        android:layout_width="match_parent"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_alignParentRight="true"
+        android:background="#FF9800"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/prograssbar"
+        android:layout_height="20dp" />
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:id="@+id/score"
+        android:layout_above="@id/prograssbar"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:paddingBottom="70dp"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content">
+        <Button
+            android:layout_width="150dp"
+            android:id="@+id/true_button"
+            android:background="@color/Red"
+            android:text="True"
+            android:textColor="@color/White"
+            android:textSize="17dp"
+            android:textStyle="bold"
+            android:layout_height="wrap_content" />
+        <View
+            android:layout_width="6dp"
+            android:layout_height="fill_parent">
+
+        </View>
+        <Button
+            android:layout_width="150dp"
+            android:background="@color/Red"
+            android:id="@+id/false_Button"
+            android:text="False"
+            android:textColor="@color/White"
+            android:textSize="17dp"
+            android:textStyle="bold"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+
+</RelativeLayout>
