@@ -10,12 +10,12 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="300dp"
-        android:background="@color/colorFragment1"
+        android:background="@color/Purple"
         android:gravity="center"
         android:padding="20sp"
         android:text="@string/question1"
         android:textAlignment="center"
-        android:textColor="#4527A0"
+        android:textColor="@color/White"
         android:textSize="30sp"
         android:textStyle="bold" />
 
