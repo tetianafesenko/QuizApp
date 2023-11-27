@@ -47,3 +47,4 @@ public class MainActivity extends AppCompatActivity implements QuizFragment.OnAn
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 }
+
