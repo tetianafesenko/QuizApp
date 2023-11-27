@@ -6,12 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
     <TextView
         android:id="@+id/header_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-
         android:background="@color/Purple"
         android:layout_marginStart="10dp"
         android:layout_marginLeft="0dp"
@@ -41,50 +45,23 @@
         android:textSize="20sp"
         android:textStyle="bold" />
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="200dp"
-        android:layout_marginRight="10dp"
-        app:cardBackgroundColor="@color/LightGoldenrodYellow"
-        app:cardCornerRadius="10sp">
-
-        <TextView
-            android:id="@+id/question"
-            style="@style/Widget.AppCompat.Light.ActionBar.Solid"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="55dp"
-            android:gravity="center"
-            android:padding="20sp"
-            android:text="@string/question1"
-            android:textAlignment="center"
-            android:textColor="@color/BlueViolet"
-            android:textSize="45sp"
-            android:textStyle="bold" />
-    </androidx.cardview.widget.CardView>
 
     <ProgressBar
-        android:layout_width="match_parent"
-        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-        android:layout_alignParentEnd="true"
-        android:background="#FF9800"
-        android:layout_alignParentBottom="true"
         android:id="@+id/progressbar"
-        android:layout_height="20dp" />
-
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_alignParentEnd="true"
+        android:background="#FF9800" />
 
     <LinearLayout
-        android:layout_width="wrap_content"
         android:id="@+id/score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_above="@id/progressbar"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:paddingBottom="70dp"
         android:layout_centerHorizontal="true"
-        android:layout_height="wrap_content">
+        android:orientation="horizontal"
+        android:paddingBottom="70dp">
 
         <Button
             android:id="@+id/true_button"
@@ -96,21 +73,20 @@
             android:textSize="20sp"
             android:textStyle="bold"
             tools:ignore="TextSizeCheck" />
+
         <View
             android:layout_width="6dp"
-            android:layout_height="fill_parent">
+            android:layout_height="fill_parent" />
 
-        </View>
         <Button
-            android:layout_width="150dp"
-            android:background="@color/Red"
             android:id="@+id/false_Button"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:background="@color/Red"
             android:text="@string/false1"
             android:textColor="@color/White"
             android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_height="wrap_content" />
+            android:textStyle="bold" />
     </LinearLayout>
-
 
 </RelativeLayout>
