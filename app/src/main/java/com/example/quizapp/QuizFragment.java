@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -57,7 +58,13 @@ public class QuizFragment extends Fragment {
         btnTrue.setOnClickListener(v -> checkAnswer(true));
         btnFalse.setOnClickListener(v -> checkAnswer(false));
 
+        ProgressBar progressBar = view.findViewById(R.id.progressbar);
+        int totalQuestions = QuizData.questions.size();
+        int progress = (int) (((float) (currentQuestionIndex + 1) / totalQuestions) * 100);
+        progressBar.setProgress(progress);
+
         return view;
+
     }
 
     private void checkAnswer(boolean userAnswer) {
