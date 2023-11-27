@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">QuizApp</string>
+    <string name="score">Score</string>
+    <string name="false1">False</string>
+    <string name="true1">True</string>
+    <string name="question1">question1</string>
 </resources>
