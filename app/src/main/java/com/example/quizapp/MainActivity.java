@@ -1,6 +1,7 @@
 package com.example.quizapp;
 
 import android.os.Bundle;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
@@ -52,4 +53,18 @@ public class MainActivity extends AppCompatActivity implements QuizFragment.OnAn
         ft.replace(R.id.fragment_container, QuizFragment.newInstance(currentQuestionIndex));
         ft.commit();
     }
+
+    private void updateProgressBar() {
+        ProgressBar progressBar = findViewById(R.id.progressbar);
+        int totalQuestions = QuizData.questions.size();
+        int progress = (int) (((float) (currentQuestionIndex + 1) / totalQuestions) * 100);
+        progressBar.setProgress(progress);
+
+        // Set up background color for the new question
+        int[] fragmentColors = getResources().getIntArray(R.array.fragmentColors);
+        int colorIndex = currentQuestionIndex % fragmentColors.length;
+        int backgroundColor = fragmentColors[colorIndex];
+        findViewById(R.id.fragment_container).setBackgroundColor(backgroundColor);
+    }
+
 }

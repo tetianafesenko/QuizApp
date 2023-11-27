@@ -48,7 +48,12 @@ public class QuizFragment extends Fragment {
         assert getArguments() != null;
         currentQuestionIndex = getArguments().getInt("questionIndex");
 
-        // Set up your UI elements and question based on the currentQuestionIndex
+        // Set up background color
+        int[] fragmentColors = getResources().getIntArray(R.array.fragmentColors);
+        int colorIndex = currentQuestionIndex % fragmentColors.length;
+        int backgroundColor = fragmentColors[colorIndex];
+        view.setBackgroundColor(backgroundColor);
+
         TextView questionTextView = view.findViewById(R.id.questionTextView);
         questionTextView.setText(QuizData.questions.get(currentQuestionIndex).getText());
 

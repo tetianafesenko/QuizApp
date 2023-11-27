@@ -127,7 +127,6 @@
     <color name="Aqua">#00FFFF</color>
     <color name="Cyan">#00FFFF</color>
     <color name="SpringGreen">#00FF7F</color>
-    <color name="Lime">#00FF00</color>
     <color name="MediumSpringGreen">#00FA9A</color>
     <color name="DarkTurquoise">#00CED1</color>
     <color name="DeepSkyBlue">#00BFFF</color>
@@ -140,4 +139,7 @@
     <color name="DarkBlue">#00008B</color>
     <color name="Navy">#000080</color>
     <color name="Black">#000000</color>
+    <color name="colorFragment1">#FF4081</color>
+    <color name="colorFragment2">#2196F3</color>
+    <color name="colorFragment3">#00FF00</color>
 </resources>
