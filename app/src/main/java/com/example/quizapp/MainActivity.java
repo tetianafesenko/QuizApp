@@ -3,6 +3,7 @@ package com.example.quizapp;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -74,8 +75,9 @@ public class MainActivity extends AppCompatActivity implements QuizFragment.OnAn
             correctAnswerCount++;
         }
 
-        currentQuestionIndex++;
         totalAttempts++;
+
+        currentQuestionIndex++; // Move this line after incrementing totalAttempts
 
         if (currentQuestionIndex < QuizData.questions.size()) {
             showQuizFragment();
@@ -84,6 +86,7 @@ public class MainActivity extends AppCompatActivity implements QuizFragment.OnAn
             showResultAlertDialog(correctAnswerCount);
         }
     }
+
 
     private void showQuizCompletionMessage() {
         Toast.makeText(this, "Quiz Completed!", Toast.LENGTH_SHORT).show();
@@ -95,16 +98,19 @@ public class MainActivity extends AppCompatActivity implements QuizFragment.OnAn
     }
 
     private void showAverageReport() {
-        int totalQuestions = 3; // Set the total number of questions
-
         if (totalAttempts > 0) {
-            float percentage = ((float) correctAnswerCount / totalQuestions) * 100;
-            String averageMessage = "Average: " + percentage + "%";
+            // Print values for debugging
+            System.out.println("Correct Answers: " + correctAnswerCount);
+            System.out.println("Total Attempts: " + totalAttempts);
+
+            float average = (float) correctAnswerCount / totalAttempts * 100;
+            String averageMessage = "Average: " + average + "%";
             showToast(averageMessage);
         } else {
             showToast("No attempts yet");
         }
     }
+
 
     private void showSelectQuestionsDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
