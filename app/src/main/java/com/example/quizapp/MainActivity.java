@@ -30,8 +30,6 @@ public class MainActivity extends AppCompatActivity implements QuizFragment.OnAn
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
-        // Show the QuizFragment immediately
         showQuizFragment();
     }
 
@@ -98,8 +96,8 @@ public class MainActivity extends AppCompatActivity implements QuizFragment.OnAn
 
     private void showAverageReport() {
         if (totalAttempts > 0) {
-            float average = (float) correctAnswerCount / totalAttempts;
-            String averageMessage = "Average: " + average;
+            float average = (float) correctAnswerCount / totalAttempts * 100; // Multiply by 100 to get a percentage
+            String averageMessage = "Average: " + average + "%";
             showToast(averageMessage);
         } else {
             showToast("No attempts yet");
