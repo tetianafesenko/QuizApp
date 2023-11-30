@@ -95,9 +95,11 @@ public class MainActivity extends AppCompatActivity implements QuizFragment.OnAn
     }
 
     private void showAverageReport() {
+        int totalQuestions = 3; // Set the total number of questions
+
         if (totalAttempts > 0) {
-            float average = (float) correctAnswerCount / totalAttempts * 100; // Multiply by 100 to get a percentage
-            String averageMessage = "Average: " + average + "%";
+            float percentage = ((float) correctAnswerCount / totalQuestions) * 100;
+            String averageMessage = "Average: " + percentage + "%";
             showToast(averageMessage);
         } else {
             showToast("No attempts yet");
