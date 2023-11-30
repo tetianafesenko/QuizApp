@@ -1,21 +1,19 @@
 package com.example.quizapp;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.widget.ProgressBar;
 import android.widget.Toast;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.appcompat.app.AlertDialog;
 import java.io.FileOutputStream;
-import android.content.Context;
 import java.io.IOException;
-
-
-
 
 public class MainActivity extends AppCompatActivity implements QuizFragment.OnAnswerSelectedListener {
 
     private int currentQuestionIndex = 0;
+    private int correctAnswerCount = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,52 +24,37 @@ public class MainActivity extends AppCompatActivity implements QuizFragment.OnAn
     }
 
     private void showQuizFragment() {
+        // Use add instead of replace to add the fragment to the back stack
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.fragment_container, QuizFragment.newInstance(currentQuestionIndex));
+        ft.add(R.id.fragment_container, QuizFragment.newInstance(currentQuestionIndex));
+        ft.addToBackStack(null); // Add the transaction to the back stack
         ft.commit();
     }
 
     @Override
     public void onAnswerSelected(boolean isCorrect) {
-        showResultToast(isCorrect);
+        // Removed the call to showResultToast(isCorrect)
+
+        if (isCorrect) {
+            correctAnswerCount++;
+        }
+
         currentQuestionIndex++;
 
         if (currentQuestionIndex < QuizData.questions.size()) {
+            // Move the showQuizFragment() call here
             showQuizFragment();
         } else {
             // The quiz is finished
             showQuizCompletionMessage();
+            showResultAlertDialog(correctAnswerCount); // Show the result dialog
         }
     }
+
 
     private void showQuizCompletionMessage() {
         // Display a message indicating that the quiz is completed
         Toast.makeText(this, "Quiz Completed!", Toast.LENGTH_SHORT).show();
-    }
-
-    private void showResultToast(boolean isCorrect) {
-        String message = isCorrect ? "Correct!" : "Incorrect!";
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
-    }
-
-    public void showNextQuestion() {
-        // Replace the current fragment with a new instance of QuizFragment
-        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.fragment_container, QuizFragment.newInstance(currentQuestionIndex));
-        ft.commit();
-    }
-
-    private void updateProgressBar() {
-        ProgressBar progressBar = findViewById(R.id.progressbar);
-        int totalQuestions = QuizData.questions.size();
-        int progress = (int) (((float) (currentQuestionIndex + 1) / totalQuestions) * 100);
-        progressBar.setProgress(progress);
-
-        // Set up background color for the new question
-        int[] fragmentColors = getResources().getIntArray(R.array.fragmentColors);
-        int colorIndex = currentQuestionIndex % fragmentColors.length;
-        int backgroundColor = fragmentColors[colorIndex];
-        findViewById(R.id.fragment_container).setBackgroundColor(backgroundColor);
     }
 
     private void showResultAlertDialog(int correctCount) {
@@ -94,12 +77,13 @@ public class MainActivity extends AppCompatActivity implements QuizFragment.OnAn
 
         builder.show();
     }
-    // Define the resetQuiz method
+
     private void resetQuiz() {
         currentQuestionIndex = 0;
-
+        correctAnswerCount = 0;
         showQuizFragment(); // To show the first question again
     }
+
     private void saveResult(int correctCount) {
         // Create a file to save the result
         String fileName = "quiz_result.txt";
