@@ -24,16 +24,15 @@ public class MainActivity extends AppCompatActivity implements QuizFragment.OnAn
     }
 
     private void showQuizFragment() {
-        // Use add instead of replace to add the fragment to the back stack
+        // Use replace to replace the current fragment
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        ft.add(R.id.fragment_container, QuizFragment.newInstance(currentQuestionIndex));
-        ft.addToBackStack(null); // Add the transaction to the back stack
+        ft.replace(R.id.fragment_container, QuizFragment.newInstance(currentQuestionIndex));
         ft.commit();
     }
 
     @Override
     public void onAnswerSelected(boolean isCorrect) {
-        // Removed the call to showResultToast(isCorrect)
+        showResultToast(isCorrect);
 
         if (isCorrect) {
             correctAnswerCount++;
@@ -42,7 +41,6 @@ public class MainActivity extends AppCompatActivity implements QuizFragment.OnAn
         currentQuestionIndex++;
 
         if (currentQuestionIndex < QuizData.questions.size()) {
-            // Move the showQuizFragment() call here
             showQuizFragment();
         } else {
             // The quiz is finished
@@ -57,6 +55,10 @@ public class MainActivity extends AppCompatActivity implements QuizFragment.OnAn
         Toast.makeText(this, "Quiz Completed!", Toast.LENGTH_SHORT).show();
     }
 
+    private void showResultToast(boolean isCorrect) {
+        String message = isCorrect ? "Correct!" : "Incorrect!";
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
     private void showResultAlertDialog(int correctCount) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Quiz Finished");
