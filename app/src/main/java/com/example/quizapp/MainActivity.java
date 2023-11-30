@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity implements QuizFragment.OnAn
     }
 
     private void showQuizFragment() {
-        // Use replace to replace the current fragment
+
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.fragment_container, QuizFragment.newInstance(currentQuestionIndex));
         ft.commit();
@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity implements QuizFragment.OnAn
 
 
     private void showQuizCompletionMessage() {
-        // Display a message indicating that the quiz is completed
+        // Display that the quiz is completed
         Toast.makeText(this, "Quiz Completed!", Toast.LENGTH_SHORT).show();
     }
 
@@ -65,15 +65,15 @@ public class MainActivity extends AppCompatActivity implements QuizFragment.OnAn
         builder.setMessage("You answered " + correctCount + " questions correctly. Do you want to save the result?");
 
         builder.setPositiveButton("Save", (dialog, which) -> {
-            // Save the result (number of correct questions) to the file system
+            // Save the result
             saveResult(correctCount);
 
-            // Reset the quiz for another attempt
+            // Reset the quiz
             resetQuiz();
         });
 
         builder.setNegativeButton("Ignore", (dialog, which) -> {
-            // Reset the quiz for another attempt without saving
+
             resetQuiz();
         });
 
@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity implements QuizFragment.OnAn
         // Create a file to save the result
         String fileName = "quiz_result.txt";
         try (FileOutputStream fos = openFileOutput(fileName, Context.MODE_PRIVATE)) {
-            // Write the correct count to the file
+
             String resultString = String.valueOf(correctCount);
             fos.write(resultString.getBytes());
             Toast.makeText(this, "Result saved!", Toast.LENGTH_SHORT).show();

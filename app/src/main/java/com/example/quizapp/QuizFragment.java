@@ -76,10 +76,10 @@ public class QuizFragment extends Fragment {
         // Get the current question from QuizData
         QuizData.Question currentQuestion = QuizData.questions.get(currentQuestionIndex);
 
-        // Compare userAnswer with the correct answer for the current question
+        // Compare userAnswer
         boolean isCorrect = (userAnswer == currentQuestion.getAnswer());
 
-        // Notify the listener with the result
+        // Notify the result
         answerSelectedListener.onAnswerSelected(isCorrect);
     }
 }
