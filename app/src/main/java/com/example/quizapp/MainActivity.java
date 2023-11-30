@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity implements QuizFragment.OnAn
         int itemId = item.getItemId();
 
         if (itemId == R.id.menu_get_average) {
-            showAverageReport();
+            calculateAndShowAverage();
             return true;
         } else if (itemId == R.id.menu_select_questions) {
             showSelectQuestionsDialog();
@@ -59,7 +59,6 @@ public class MainActivity extends AppCompatActivity implements QuizFragment.OnAn
             return super.onOptionsItemSelected(item);
         }
     }
-
 
     private void showQuizFragment() {
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
@@ -97,11 +96,8 @@ public class MainActivity extends AppCompatActivity implements QuizFragment.OnAn
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 
-    private void showAverageReport() {
+    private void calculateAndShowAverage() {
         if (totalAttempts > 0) {
-            // Print values for debugging
-            System.out.println("Correct Answers: " + correctAnswerCount);
-            System.out.println("Total Attempts: " + totalAttempts);
 
             float average = (float) correctAnswerCount / totalAttempts * 100;
             String averageMessage = "Average: " + average + "%";
@@ -110,7 +106,6 @@ public class MainActivity extends AppCompatActivity implements QuizFragment.OnAn
             showToast("No attempts yet");
         }
     }
-
 
     private void showSelectQuestionsDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -136,11 +131,11 @@ public class MainActivity extends AppCompatActivity implements QuizFragment.OnAn
         builder.setTitle("Reset Saved Results");
         builder.setMessage("Are you sure you want to reset saved results?");
         builder.setPositiveButton("Yes", (dialog, which) -> {
-            // Reset saved results logic
+            // Reset saved results
             showToast("Results reset");
         });
         builder.setNegativeButton("No", (dialog, which) -> {
-            // Handle cancellation
+            // Cancellation
             showToast("Reset canceled");
         });
         builder.show();
