@@ -6,10 +6,13 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
+import android.widget.TextView;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 import java.io.FileOutputStream;
+import androidx.appcompat.widget.Toolbar;
+
 import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity implements QuizFragment.OnAnswerSelectedListener {
@@ -23,7 +26,15 @@ public class MainActivity extends AppCompatActivity implements QuizFragment.OnAn
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        showQuizFragment();
+        // Set up the Toolbar
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        // Find the custom_title TextView
+        TextView customTitleTextView = findViewById(R.id.custom_title);
+
+        // Customize the TextView using the string resource
+        customTitleTextView.setText(R.string.custom_quiz_assignment_title);
     }
 
     @Override
@@ -31,6 +42,8 @@ public class MainActivity extends AppCompatActivity implements QuizFragment.OnAn
         getMenuInflater().inflate(R.menu.main_menu, menu);
         return true;
     }
+
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
