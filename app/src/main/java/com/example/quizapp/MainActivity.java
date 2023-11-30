@@ -33,7 +33,6 @@ public class MainActivity extends AppCompatActivity implements QuizFragment.OnAn
         // Find the custom_title TextView
         TextView customTitleTextView = findViewById(R.id.custom_title);
 
-        // Customize the TextView using the string resource
         customTitleTextView.setText(R.string.custom_quiz_assignment_title);
     }
 
@@ -109,25 +108,25 @@ public class MainActivity extends AppCompatActivity implements QuizFragment.OnAn
     }
 
     private void showSelectQuestionsDialog() {
-        // Placeholder for the dialog to select the number of questions
-        // You can replace this with the actual logic for your dialog
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Select Number of Questions");
-        builder.setMessage("Implement your logic here");
+        builder.setMessage("There are 3 questions");
         builder.setPositiveButton("OK", (dialog, which) -> {
-            // Handle the selection
-            showToast("Dialog will handle selection");
+            // Selection
+            showToast("3 questions selected");
+
+            showQuizFragment();
         });
         builder.setNegativeButton("Cancel", (dialog, which) -> {
-            // Handle cancellation
+            // Cancellation
             showToast("Dialog canceled");
         });
         builder.show();
     }
 
+
     private void showResetResultsDialog() {
-        // Placeholder for the dialog to reset saved results
-        // You can replace this with the actual logic for your dialog
+
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Reset Saved Results");
         builder.setMessage("Are you sure you want to reset saved results?");

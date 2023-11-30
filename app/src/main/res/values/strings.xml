@@ -16,6 +16,6 @@
     <string name="reset_saved_results">Reset Saved Results</string>
     <string name="toolbar">Toolbar</string>
     <string name="menu">Menu</string>
-    <string name="custom_quiz_assignment_title">Custom Quiz Assignment Title</string>
+    <string name="custom_quiz_assignment_title">Quiz Assignment</string>
 
 </resources>
