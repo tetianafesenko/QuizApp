@@ -143,9 +143,7 @@ public class MainActivity extends AppCompatActivity implements QuizFragment.OnAn
             resetQuiz();
         });
 
-        builder.setNegativeButton("Ignore", (dialog, which) -> {
-            resetQuiz();
-        });
+        builder.setNegativeButton("Ignore", (dialog, which) -> resetQuiz());
 
         builder.show();
     }
