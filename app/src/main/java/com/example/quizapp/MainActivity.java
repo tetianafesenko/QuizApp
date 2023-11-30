@@ -30,10 +30,9 @@ public class MainActivity extends AppCompatActivity implements QuizFragment.OnAn
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        // Find the custom_title TextView
-        TextView customTitleTextView = findViewById(R.id.custom_title);
 
-        customTitleTextView.setText(R.string.custom_quiz_assignment_title);
+        // Show the QuizFragment immediately
+        showQuizFragment();
     }
 
     @Override
