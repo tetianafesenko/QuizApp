@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity implements QuizFragment.OnAn
     // Define the resetQuiz method
     private void resetQuiz() {
         currentQuestionIndex = 0;
-        // You may need additional logic to reset other quiz-related variables or UI elements
+
         showQuizFragment(); // To show the first question again
     }
     private void saveResult(int correctCount) {
