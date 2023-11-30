@@ -11,4 +11,7 @@
     <!-- Answers -->
     <string name="true1">True</string>
     <string name="false1">False</string>
+    <string name="get_the_average">Get The Average</string>
+    <string name="select_number_of_questions">Select Number of Questions</string>
+    <string name="reset_saved_results">Reset Saved Results</string>
 </resources>
